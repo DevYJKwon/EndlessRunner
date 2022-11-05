@@ -61,6 +61,3 @@ crashlytics-build.properties
 # Igonore user layouts setting
 /UserSettings/
 /UserSettings/Layouts/default-2021.dwlt
-
-Logs/*
-
