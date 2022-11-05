@@ -29,7 +29,8 @@ public class GameState : AState
     public Text coinText;
     public Text premiumText;
     public Text scoreText;
-	public Text distanceText;
+    public Text comboText;
+    public Text distanceText;
     public Text multiplierText;
 	public Text countdownText;
     public RectTransform powerupZone;
@@ -350,6 +351,7 @@ public class GameState : AState
 
         scoreText.text = trackManager.score.ToString();
         multiplierText.text = "x " + trackManager.multiplier;
+        comboText.text = trackManager.combo.ToString();
 
 		distanceText.text = Mathf.FloorToInt(trackManager.worldDistance).ToString() + "m";
 

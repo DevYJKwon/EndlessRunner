@@ -265,6 +265,11 @@ public class CharacterInputController : MonoBehaviour
 			{
                 // We slid to (or past) the required length, go back to running
 				StopSliding();
+				if(trackManager.speed <= trackManager.maxSpeed-1)
+                {
+					trackManager.speed += 1;
+                }
+				trackManager.combo+=1;
 			}
 		}
 
@@ -280,6 +285,11 @@ public class CharacterInputController : MonoBehaviour
 				{
 					m_Jumping = false;
 					character.animator.SetBool(s_JumpingHash, false);
+					if (trackManager.speed <= trackManager.maxSpeed - 1)
+					{
+						trackManager.speed += 1;
+					}
+					trackManager.combo += 1;
 				}
 				else
 				{
@@ -340,7 +350,7 @@ public class CharacterInputController : MonoBehaviour
         {
             character.animator.SetBool(s_JumpingHash, false);
             m_Jumping = false;
-        }
+		}
     }
 
 	public void Slide()
@@ -373,7 +383,6 @@ public class CharacterInputController : MonoBehaviour
 		{
 			character.animator.SetBool(s_SlidingHash, false);
 			m_Sliding = false;
-
 			characterCollider.Slide(false);
 		}
 	}
@@ -424,4 +433,5 @@ public class CharacterInputController : MonoBehaviour
         m_ActiveConsumables.Add(c);
         StartCoroutine(c.Started(this));
     }
+
 }

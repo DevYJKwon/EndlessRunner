@@ -66,6 +66,7 @@ public class TrackManager : MonoBehaviour
     public float timeToStart { get { return m_TimeToStart; } }  // Will return -1 if already started (allow to update UI)
 
     public int score { get { return m_Score; } }
+    public int combo { get { return m_Combo; } set { m_Combo = value; } }
     public int multiplier { get { return m_Multiplier; } }
     public float currentSegmentDistance { get { return m_CurrentSegmentDistance; } }
     public float worldDistance { get { return m_TotalWorldDistance; } }
@@ -94,7 +95,7 @@ public class TrackManager : MonoBehaviour
     protected float m_CurrentSegmentDistance;
     protected float m_TotalWorldDistance;
     protected bool m_IsMoving;
-    protected float m_Speed;
+    protected float m_Speed=0;
 
     protected float m_TimeSincePowerup;     // The higher it goes, the higher the chance of spawning one
     protected float m_TimeSinceLastPremium;
@@ -111,6 +112,7 @@ public class TrackManager : MonoBehaviour
     protected int m_PreviousSegment = -1;
 
     protected int m_Score;
+    protected int m_Combo;
     protected float m_ScoreAccum;
     protected bool m_Rerun;     // This lets us know if we are entering a game over (ads) state or starting a new game (see GameState)
 
@@ -133,6 +135,7 @@ public class TrackManager : MonoBehaviour
     {
         m_ScoreAccum = 0.0f;
         s_Instance = this;
+        m_Combo = 0;
     }
 
     public void StartMove(bool isRestart = true)

@@ -6,6 +6,8 @@ PlayerData.cs에 있는 CheckMissionsCount() 함수에서 missions.count의 개�
 ## 2. 캐릭터 Accessory 아이템 하나 넣기 ##
 Bundle -> Character -> Cat으로 가서 RedSmart 아이템을 하나 추가하고, Character 인스펙터 창에서 element를 추가해서 아이템을 생성함.
 
+## 4. 스코어 배수에 따라 물고기 코인도 배수만큼 늘어난다 ##
+CharacterCollider.cs에 있는 코인 충돌 이벤트 메소드에서 단순 +1이 아닌 trackManager의 multiplier 변수를 가져와서 이와 곱을 하여 배수에 따라 코인 충돌 시 증가하는 값을 수정하였다.
 ## 5. 장애물 하나 새로 만들어서 런타임 중에 생성되게 만들기 ##
 IndustrialWareHouse 인스펙터에서 추가적으로 만든 StreetLight Obstacle을 추가해서 장애물을 추가함.
 

@@ -117,8 +117,8 @@ public class CharacterCollider : MonoBehaviour
             else
             {
 				Coin.coinPool.Free(c.gameObject);
-                PlayerData.instance.coins += 1;
-				controller.coins += 1;
+                PlayerData.instance.coins += 1*controller.trackManager.multiplier;
+				controller.coins += 1 * controller.trackManager.multiplier;
 				m_Audio.PlayOneShot(coinSound);
             }
         }
@@ -149,6 +149,7 @@ public class CharacterCollider : MonoBehaviour
             else
             {
                 controller.currentLife -= 1;
+				controller.trackManager.combo = 0;
             }
 
             controller.character.animator.SetTrigger(s_HitHash);
